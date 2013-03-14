@@ -211,7 +211,9 @@ class SecurityServiceProvider implements ServiceProviderInterface
                         }
 
                         $factories[$position][] = $listenerId;
-                        $providers[] = $providerId;
+                        if(!in_array($providerId, $providers)) {
+                            $providers[] = $providerId;
+                        }
                     }
 
                     foreach ($positions as $position) {
